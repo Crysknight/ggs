@@ -1,0 +1,60 @@
+.ggs-navbar {
+
+	padding: 0;
+	height: 80px;
+
+	.navbar-brand {
+		img {
+			width: 140px;
+		}
+	}
+
+	.navbar-toggler {
+		outline: none;
+		.toggler-icon-bar {
+			height: 3px;
+			background-color: $ggsCBlack;
+			border-radius: 1.5px;
+			margin: 5px;
+		}
+	}
+
+	.nav-item {
+		.nav-link {
+			padding: 15px;
+			position: relative;
+			font-family: $ggsFRegular1;
+			color: $ggsCBlack;
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: -3px;
+				left: 0;
+				height: 3px;
+				width: 0;
+				background-color: $ggsCGreen;
+				transition: width 0.3s;
+			}
+			&:hover:after {
+				width: 100%;
+			}
+		}
+	}
+
+	.navbar-text {
+		span {
+			display: block;
+			color: $ggsTextGrey;
+			font-size: 12px;
+			width: 140px;
+			text-align: right;
+		}
+		span.ggs-phone {
+			color: $ggsCGreen;
+			letter-spacing: 2px;
+			font-size: 13px;
+			font-weight: bold;
+		}
+	}
+
+}
