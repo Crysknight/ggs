@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractPlugin = new ExtractTextPlugin({
-	filename: 'main[hash].css'
+	filename: 'css/styles.css'
 });
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -11,7 +11,8 @@ module.exports = {
 	entry: './src/js/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].bundle[hash].js'
+		filename: 'js/scripts.js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
@@ -19,7 +20,12 @@ module.exports = {
 				test: /\.scss$/,
 				include: path.resolve(__dirname, 'src/css'),
 				use: extractPlugin.extract({
-					use: ['css-loader', 'postcss-loader', 'sass-loader']
+					use: [
+						'css-loader', 
+						'postcss-loader', 
+						'sass-loader'
+					],
+					publicPath: '../'
 				})
 			},
 			{
@@ -44,7 +50,8 @@ module.exports = {
 				use: {
 					loader: 'html-loader',
 					options: {
-						interpolate: true
+						interpolate: true,
+						minimize: false
 					}
 				}
 			},
@@ -70,7 +77,8 @@ module.exports = {
 				use: {
 					loader: 'file-loader',
 					options: {
-						outputPath: 'fonts/'
+						name: 'fonts/[name].[ext]',
+						publicPath: '../'
 					}
 				}
 			}
@@ -87,7 +95,8 @@ module.exports = {
 		extractPlugin,
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
-			template: 'src/index.html'
+			template: 'src/index.html',
+			minify: false
 		}),
 		new CleanWebpackPlugin(['dist'])
 	]

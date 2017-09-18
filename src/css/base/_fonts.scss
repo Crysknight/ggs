@@ -119,16 +119,16 @@
 //   font-style: italic;
 // }
 
-// @font-face {
-//   font-family: 'Raleway';
-//   src: url('../fonts/Raleway-Bold.eot');
-//   src: url('../fonts/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
-//     url('../fonts/Raleway-Bold.woff') format('woff'),
-//     url('../fonts/Raleway-Bold.ttf') format('truetype'),
-//     url('../fonts/Raleway-Bold.svg#Raleway-Bold') format('svg');
-//   font-weight: bold;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/Raleway-Bold.eot');
+  src: url('../fonts/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Raleway-Bold.woff') format('woff'),
+    url('../fonts/Raleway-Bold.ttf') format('truetype'),
+    url('../fonts/Raleway-Bold.svg#Raleway-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
 
 // @font-face {
 //   font-family: 'Raleway';
@@ -207,16 +207,16 @@
   font-style: normal;
 }
 
-// @font-face {
-//   font-family: 'Source Sans Pro';
-//   src: url('../fonts/SourceSansPro-Semibold.eot');
-//   src: url('../fonts/SourceSansPro-Semibold.eot?#iefix') format('embedded-opentype'),
-//     url('../fonts/SourceSansPro-Semibold.woff') format('woff'),
-//     url('../fonts/SourceSansPro-Semibold.ttf') format('truetype'),
-//     url('../fonts/SourceSansPro-Semibold.svg#SourceSansPro-Semibold') format('svg');
-//   font-weight: 600;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../fonts/SourceSansPro-Semibold.eot');
+  src: url('../fonts/SourceSansPro-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SourceSansPro-Semibold.woff') format('woff'),
+    url('../fonts/SourceSansPro-Semibold.ttf') format('truetype'),
+    url('../fonts/SourceSansPro-Semibold.svg#SourceSansPro-Semibold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
 
 // @font-face {
 //   font-family: 'Source Sans Pro';

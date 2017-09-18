@@ -23,8 +23,9 @@
 		.nav-link {
 			padding: 15px;
 			position: relative;
-			font-family: $ggsFRegular1;
+			font-family: $ggsF1;
 			color: $ggsCBlack;
+			font-size: 16px;
 			&:after {
 				content: '';
 				position: absolute;
@@ -44,7 +45,7 @@
 	.navbar-text {
 		span {
 			display: block;
-			color: $ggsTextGrey;
+			color: $ggsCTextGrey;
 			font-size: 12px;
 			width: 140px;
 			text-align: right;

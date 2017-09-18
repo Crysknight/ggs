@@ -6,5 +6,204 @@
 // Block
 @import './blocks/navbar';
 
-// Pages
-@import './pages/index';
+
+body {
+	font-family: $ggsF1;
+	font-size: 22px;
+}
+
+
+.section-title {
+	font-family: $ggsF2;
+	font-weight: bold;
+	font-size: 55px;
+	margin-bottom: 25px;
+	text-align: center;
+	&.white {
+		color: $ggsCWhite;
+	}
+}
+
+.semititle {
+	margin: 20px 0;
+	font-weight: normal;
+	font-size: 22px;
+	text-align: center;
+	font-weight: 600;
+	&.white {
+		color: $ggsCWhite;
+	}
+	&.green {
+		color: $ggsCGreen;
+	}
+}
+
+.ggs-section {
+	padding: 60px 0;
+}
+
+.ggs-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 45px;
+	background-color: $ggsCGreen;
+	outline: none;
+	border: none;
+	border-radius: 18px;
+	font-size: 13px;
+	font-weight: bold;
+	color: $ggsCWhite;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+.ggs-terms-of-use {
+	font-size: 14px;
+}
+
+
+
+.ggs-first-section {
+	display: flex;
+	align-items: center;
+	height: calc(100vh - 80px);
+	background-image: url('../img/head.jpg');
+	background-size: cover;
+	.semititle {
+		font-weight: normal;
+	}
+}
+
+
+
+.ggs-fast-form-section {
+	background-color: $ggsCCoal;
+	color: $ggsCWhite;
+	input, button {
+		width: 100%;
+	}
+	input {
+		display: flex;
+		align-items: center;
+		height: 45px;
+		padding-left: 20px;
+		background-color: $ggsCPaleCoal;
+		color: $ggsCWhite;
+		outline: none;
+		border: none;
+		border-radius: 5px;
+		font-size: 14px;
+		@include placeholder($ggsCWhite);
+	}
+	.ggs-terms-of-use {
+		margin-top: 30px;
+		text-align: center;
+	}
+}
+
+
+
+.ggs-advantages {
+	.row {
+		margin-bottom: -90px;
+	}
+	.advantage {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: 90px;
+	}
+	img {
+		height: 100px;
+		margin-bottom: 25px;
+	}
+	.advantage-name {
+		margin: 0;
+		font-size: 25px;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+	.advantage-commentary {
+		margin: 0;
+		font-size: 18px;
+		color: $ggsCTextGrey;
+	}
+	p {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+
+
+.ggs-online-calculator {
+	background-color: $ggsCAlmostWhite;
+	.number-of-rooms {
+		.label {
+			color: $ggsCGreen;
+			text-align: center;
+			margin-top: 30px;
+		}
+	}
+	.select-number-of-rooms {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 40px;
+		.select-number {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: 40px;
+			width: 40px;
+			margin-right: 30px;
+			border: 2px solid $ggsCGreen;
+			border-radius: 5px;
+			color: $ggsCGreen;
+			cursor: pointer;
+			transition: all 0.3s;
+			&:last-child {
+				margin-right: 0;
+			}
+			&.chosen {
+				background-color: $ggsCGreen;
+				color: $ggsCWhite;
+			}
+		}
+	}
+	.assessing-form {
+		.form-fields {
+			margin-bottom: -15px;
+		}
+		input, label {
+			color: $ggsCGreen;
+			display: block;
+			width: 90%;
+			margin: 0 auto;
+		}
+		input {
+			height: 40px;
+			padding-left: 20px;
+			border: 2px solid $ggsCGreen;
+			border-radius: 5px;
+			margin-bottom: 40px;
+			background-color: transparent;
+			outline: none;
+		}
+		label {
+			margin-bottom: 10px;
+		}
+	}
+	.ggs-terms-of-use {
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.submit-assessing-form {
+		width: 270px;
+		margin: 25px auto 0;
+	}
+}
