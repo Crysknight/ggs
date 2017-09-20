@@ -10,17 +10,51 @@
 body {
 	font-family: $ggsF1;
 	font-size: 22px;
+	@include respond-to(sm) {
+		font-size: 16px;
+	}
+	@include respond-to(xs) {
+		font-size: 14px;
+	}
 }
 
 
 .section-title {
 	font-family: $ggsF2;
 	font-weight: bold;
-	font-size: 55px;
+	font-size: 53px;
 	margin-bottom: 25px;
 	text-align: center;
-	&.white {
-		color: $ggsCWhite;
+	&.secondary {
+		text-align: left;
+		font-size: 40px;
+		@include respond-to(lg) {
+			font-size: 30px;
+		}
+		@include respond-to(md) {
+			font-size: 25px;
+		}
+		@include respond-to(sm) {
+			font-size: 25px;
+		}
+		@include respond-to(xs) {
+			font-size: 25px;
+		}
+	}
+	&.thin {
+		font-weight: normal;
+	}
+	@include respond-to(lg) {
+		font-size: 45px;
+	}
+	@include respond-to(md) {
+		font-size: 32px;
+	}
+	@include respond-to(sm) {
+		font-size: 30px;
+	}
+	@include respond-to(xs) {
+		font-size: 25px;
 	}
 }
 
@@ -30,22 +64,68 @@ body {
 	font-size: 22px;
 	text-align: center;
 	font-weight: 600;
-	&.white {
-		color: $ggsCWhite;
-	}
 	&.green {
 		color: $ggsCGreen;
+	}
+	@include respond-to(sm) {
+		font-size: 16px;
+	}
+	@include respond-to(xs) {
+		font-size: 14px;
+	}
+}
+
+.title-image {
+	height: 100px;
+	display: block;
+	margin: 0 auto 30px;
+	filter: drop-shadow(0 0 5px $ggsCBlack);
+}
+
+.phone-in-frame {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 60px auto 0;
+	height: 100px;
+	width: 540px;
+	padding-bottom: 7px;
+	font-weight: bold;
+	font-size: 44px;
+	border: 2px solid $ggsCGreen;
+	color: $ggsCWhite;
+	&:hover {
+		color: $ggsCWhite;
+		text-decoration: none;
+	}
+	html.mobile & {
+		width: 90%;
+		height: 70px;
+		font-size: 30px;
+		@include respond-to(xs) {
+			font-size: 26px;
+		}
+	}
+	@include respond-to(md) {
+		width: 420px;
+		font-size: 40px;
 	}
 }
 
 .ggs-section {
-	padding: 60px 0;
+	padding: 80px 0;
+	&.black {
+		background-color: $ggsCCoal;
+		color: $ggsCWhite;
+	}
+	&.almost-white {
+		background-color: $ggsCAlmostWhite;
+	}
 }
 
 .ggs-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: block;
+	text-align: center;
 	height: 45px;
 	background-color: $ggsCGreen;
 	outline: none;
@@ -55,11 +135,98 @@ body {
 	font-weight: bold;
 	color: $ggsCWhite;
 	text-transform: uppercase;
-	letter-spacing: 1.5px;
+	letter-spacing: 0.15em;
+	box-shadow: 0 0 0 0 transparent;
+	transition: all 0.2s;
+	cursor: pointer;
+	html.windows & {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&:focus {
+		outline: none;
+	}
+	&.error {
+		box-shadow: 0 0 5px 2px $ggsCError;
+		background-color: $ggsCError;
+	}
 }
 
 .ggs-terms-of-use {
 	font-size: 14px;
+}
+
+.ggs-form {
+	.form-fields {
+		margin-bottom: -15px;
+	}
+	input, label, textarea {
+		color: $ggsCGreen;
+		display: block;
+		width: 90%;
+		margin: 0 auto;
+	}
+	input, textarea {
+		height: 40px;
+		padding-left: 20px;
+		border: 2px solid $ggsCGreen;
+		border-radius: 5px;
+		margin-bottom: 40px;
+		background-color: transparent;
+		outline: none;
+		box-shadow: 0 0 0 0 transparent;
+		transition: all 0.2s;
+		&.error {
+			box-shadow: 0 0 5px 2px $ggsCError;
+			border: 2px solid $ggsCError;
+		}
+	}
+	textarea {
+		height: 150px;
+		width: calc(90% + 45px);
+		resize: none;
+		@include respond-to(md) {
+			width: calc(90% + 30px);
+		}
+		@include respond-to(sm) {
+			width: calc(90% + 20px);
+		}
+		@include respond-to(xs) {
+			width: 90%;
+		}
+	}
+	label {
+		margin-bottom: 10px;
+	}
+}
+
+.form-shade {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: -5;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	background-color: $ggsCGrey;
+}
+
+.thank-you-message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: -5;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-family: $ggsF2;
+	font-weight: bold;
 }
 
 
@@ -67,19 +234,23 @@ body {
 .ggs-first-section {
 	display: flex;
 	align-items: center;
-	height: calc(100vh - 80px);
+	height: calc(100vh - 260px);
 	background-image: url('../img/head.jpg');
 	background-size: cover;
 	.semititle {
 		font-weight: normal;
+		line-height: 1.4;
+		span {
+			display: block;
+		}
 	}
 }
 
 
 
 .ggs-fast-form-section {
-	background-color: $ggsCCoal;
-	color: $ggsCWhite;
+	position: relative;
+	padding: 45px 0;
 	input, button {
 		width: 100%;
 	}
@@ -94,11 +265,33 @@ body {
 		border: none;
 		border-radius: 5px;
 		font-size: 14px;
+		box-shadow: 0 0 0 0 transparent;
+		transition: all 0.2s;
+		&.error {
+			box-shadow: 0 0 5px 2px $ggsCError;
+		}
 		@include placeholder($ggsCWhite);
+		@include respond-to(md) {
+			margin-top: 20px;
+		}
+		@include respond-custom(320px, $md) {
+			margin-top: 15px;
+		}
+	}
+	.ggs-button {
+		@include respond-to(md) {
+			margin-top: 20px;
+		}
+		@include respond-custom(320px, $md) {
+			margin-top: 15px;
+		}
 	}
 	.ggs-terms-of-use {
 		margin-top: 30px;
 		text-align: center;
+	}
+	.thank-you-message {
+		background-color: $ggsCCoal;
 	}
 }
 
@@ -124,12 +317,24 @@ body {
 		font-size: 25px;
 		font-weight: bold;
 		text-transform: uppercase;
-		letter-spacing: 2px;
+		letter-spacing: 0.2em;
+		@include respond-to(md) {
+			font-size: 18px;
+		}
+		@include respond-to(sm) {
+			font-size: 20px;
+		}
 	}
 	.advantage-commentary {
 		margin: 0;
 		font-size: 18px;
 		color: $ggsCTextGrey;
+		@include respond-to(md) {
+			font-size: 14px;
+		}
+		@include respond-to(sm) {
+			font-size: 16px;
+		}
 	}
 	p {
 		width: 100%;
@@ -140,7 +345,7 @@ body {
 
 
 .ggs-online-calculator {
-	background-color: $ggsCAlmostWhite;
+	position: relative;
 	.number-of-rooms {
 		.label {
 			color: $ggsCGreen;
@@ -164,7 +369,7 @@ body {
 			border-radius: 5px;
 			color: $ggsCGreen;
 			cursor: pointer;
-			transition: all 0.3s;
+			transition: all 0.1s;
 			&:last-child {
 				margin-right: 0;
 			}
@@ -172,38 +377,368 @@ body {
 				background-color: $ggsCGreen;
 				color: $ggsCWhite;
 			}
-		}
-	}
-	.assessing-form {
-		.form-fields {
-			margin-bottom: -15px;
-		}
-		input, label {
-			color: $ggsCGreen;
-			display: block;
-			width: 90%;
-			margin: 0 auto;
-		}
-		input {
-			height: 40px;
-			padding-left: 20px;
-			border: 2px solid $ggsCGreen;
-			border-radius: 5px;
-			margin-bottom: 40px;
-			background-color: transparent;
-			outline: none;
-		}
-		label {
-			margin-bottom: 10px;
+			@include respond-to(xs) {
+				height: 30px;
+				width: 30px;
+				margin-right: 20px;
+			}
 		}
 	}
 	.ggs-terms-of-use {
-		width: 80%;
+		width: 95%;
 		margin: 0 auto;
 		text-align: center;
 	}
 	.submit-assessing-form {
 		width: 270px;
 		margin: 25px auto 0;
+	}
+	.form-shade {
+		background-color: $ggsCCoal;
+	}
+	.thank-you-message {
+		background-color: $ggsCAlmostWhite;
+	}
+}
+
+
+
+.ggs-partners {
+	.partners {
+		margin-top: 25px;
+	}
+	.partner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 280px;
+		border: 1px solid $ggsCBarelyGrey;
+		border-right: none;
+		&:last-child {
+			border-right: 1px solid $ggsCBarelyGrey;
+		}
+		@include respond-to(md) {
+			height: 180px;
+		}
+		@include respond-to(xs) {
+			height: 180px;
+		}
+	}
+	img {
+		width: 140px;
+	}
+}
+
+
+
+.ggs-work-scheme {
+	.scheme-part {
+		margin-top: 40px;
+		position: relative;
+		border-top: 1px solid transparent;
+		text-align: center;
+	}
+	.part-image {
+		display: block;
+		margin: 20px auto 25px;
+		height: 60px;
+		filter: drop-shadow(0, 5px, 5px, $ggsCBlack);
+	}
+	.part-number {
+		display: block;
+		margin-left: -20px;
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		top: 0;
+		left: 50%;
+	}
+	.part-title {
+		font-weight: 600;
+		@include respond-to(md) {
+			font-size: 16px;
+		}
+		@include respond-to(sm) {
+			font-size: 15px;
+			margin-bottom: 5px;
+		}
+	}
+	.part-description {
+		font-size: 14px;
+		@include respond-to(md) {
+			font-size: 12px;
+		}
+		@include respond-to(xs) {
+			font-size: 10px;
+		}
+	}
+}
+
+
+
+.ggs-monthly-payment {
+	position: relative;
+	.container {
+		@include respond-to(md) {
+			max-width: 100%;
+			padding: 0 30px;
+			.col-md-6.mr-auto {
+				padding-right: 45px;
+			}
+			.col-md-6.ml-auto {
+				padding-left: 45px;
+			}
+		}
+	}
+	.bg-left, .bg-right {
+		display: block;
+		width: 50%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+	}
+	.bg-left {
+		background-color: $ggsCGreen;
+		left: 0;
+		@include respond-custom(320px, $md) {
+			display: none;
+		}
+	}
+	.bg-right {
+		background-color: $ggsCGrey;
+		right: 0;
+		@include respond-custom(320px, $md) {
+			width: 100%;
+		}
+	}
+	.section-title.secondary {
+		@include respond-custom(320px, $md) {
+			font-size: 30px;
+		}
+	}
+	.monthly-payment-scales {
+		color: $ggsCWhite;
+		@include respond-custom(320px, $md) {
+			color: $ggsCBlack;
+		}
+	}
+	.payment-scale {
+		margin: 90px 0;
+		&.loan-term {
+			margin-bottom: 0;
+		}
+	}
+	.scale-label {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: 17px;
+		font-weight: bold;
+		@include respond-to(lg) {
+			font-size: 14px;
+		}
+		@include respond-to(md) {
+			font-size: 14px;
+		}
+		@include respond-custom(320px, $md) {
+			font-size: 14px;
+		}
+		span.runner-value {
+			font-size: 25px;
+			@include respond-to(lg) {
+				font-size: 18px;
+			}
+			@include respond-to(md) {
+				font-size: 14px;
+			}
+			@include respond-custom(320px, $md) {
+				font-size: 14px;
+			}
+		}
+	}
+	.scale {
+		width: 100%;
+		position: relative;
+		cursor: pointer;
+		user-select: none;
+		padding: 1px 0;
+		.scale-body {
+			margin: 32px 0 12px;
+			width: 100%;
+			height: 4px;
+			background-color: $ggsCWhite;
+			@include respond-custom(320px, $md) {
+				background-color: $ggsCGreen;
+			}
+		}
+		.scale-runner {
+			margin-top: -26.5px;
+			margin-left: -10.5px;
+			transform: translateX(0px);
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			background-color: $ggsCWhite;
+			border-radius: 5px;
+			cursor: pointer;
+			user-select: none;
+			@include respond-custom(320px, $md) {
+				background-color: $ggsCGreen;
+			}
+		}
+	}
+	.scale-limits {
+		@include respond-to(lg) {
+			font-size: 16px;
+		}
+		@include respond-to(md) {
+			font-size: 16px;
+		}
+		.scale-min {
+			float: left;
+		}
+		.scale-max {
+			float: right;
+		}
+	}
+	.monthly-payment-sum {
+		@include respond-custom(320px, $md) {
+			margin-top: 40px;
+		}
+	}
+	.monthly-payment-result {
+		margin-top: 65px;
+		span.value {
+			display: inline-block;
+			margin-right: 20px;
+			font-size: 70px;
+			font-weight: bold;
+			letter-spacing: 0.1em;
+			@include respond-to(lg) {
+				font-size: 55px;
+			}
+			@include respond-to(md) {
+				font-size: 55px;
+			}
+			@include respond-custom(320px, $md) {
+				font-size: 42px;
+			}
+		}
+	}
+	.monthly-payment-commentary {
+		font-weight: 300;
+		@include respond-to(md) {
+			font-size: 16px;
+		}
+	}
+	.get-loan {
+		width: 270px;
+		position: absolute;
+		bottom: 0;
+		@include respond-custom(320px, $md) {
+			position: relative;
+			margin-top: 30px;
+		}
+	}
+}
+
+
+
+.ggs-one-call {
+	background-image: url('../img/phone.png');
+	background-size: 35%;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	html.mobile & {
+		background-image: none;
+	}
+	.section-title.secondary {
+		margin-bottom: 0;
+	}
+	.phone-in-frame {
+		margin: 60px 0 0;
+	}
+}
+
+
+
+.ggs-application-form {
+	position: relative;
+	.ggs-terms-of-use {
+		margin: 0 auto;
+		width: 95%;
+		text-align: center;
+	}
+	.submit-application-form {
+		width: 270px;
+		margin: 25px auto 0;
+	}
+	.form-shade {
+		background-color: $ggsCCoal;
+	}
+	.thank-you-message {
+		background-color: $ggsCAlmostWhite;
+	}
+}
+
+
+
+.ggs-map {
+	position: relative;
+	background-color: $ggsCGrey;
+	html.mobile & {
+		height: 280px;
+	}
+	.ggs-google-map {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	.contacts {
+		margin: 30px 0;
+		padding: 35px 0 35px 40px;
+		background-color: $ggsCCoal;
+		color: $ggsCWhite;
+		html.mobile & {
+			display: none;
+		}
+		h3 {
+			font-weight: bold;
+			font-size: 30px;
+			margin-bottom: 7px;
+		}
+		p {
+			font-size: 14px;
+			margin-bottom: 20px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			span {
+				display: block;
+				&:first-child {
+					font-size: 16px;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+
+
+.ggs-footer {
+	background-color: $ggsCCoal;
+	font-size: 14px;
+	color: $ggsCWhite;
+	@include respond-to(xs) {
+		font-size: 12px;
+	}
+	.copyrights {
+		display: flex;
+		height: 70px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.copyright-dev {
+		opacity: 0.5;
 	}
 }

@@ -3,6 +3,13 @@
 	padding: 0;
 	height: 80px;
 
+	.container {
+		@include respond-custom(320px, $lg) {
+			max-width: 100%;
+			padding: 0 15px;
+		}
+	}
+
 	.navbar-brand {
 		img {
 			width: 140px;
@@ -16,6 +23,23 @@
 			background-color: $ggsCBlack;
 			border-radius: 1.5px;
 			margin: 5px;
+		}
+		@include respond-custom(320px, $md) {
+			position: absolute;
+			right: 70px;
+			top: 20px;
+		}
+	}
+
+	.navbar-collapse {
+		@include respond-custom(320px, $md) {
+			position: absolute;
+			top: 80px;
+			background-color: $ggsCWhite;
+			width: 100%;
+			margin-left: -15px;
+			padding-bottom: 10px;
+			z-index: 500;
 		}
 	}
 
@@ -39,10 +63,25 @@
 			&:hover:after {
 				width: 100%;
 			}
+			html.desktop & {
+				@include respond-to(md) {
+					font-size: 12px;
+					padding: 8px;
+				}
+			}
+			html.mobile &, html.tablet & {
+				padding: 10px;
+				font-size: 14px;
+			}
 		}
 	}
 
 	.navbar-text {
+		cursor: pointer;
+		position: relative;
+		&:hover {
+			text-decoration: none;
+		}
 		span {
 			display: block;
 			color: $ggsCTextGrey;
@@ -55,6 +94,40 @@
 			letter-spacing: 2px;
 			font-size: 13px;
 			font-weight: bold;
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			height: 3px;
+			width: 0;
+			background-color: $ggsCGreen;
+			transition: width 0.3s;
+		}
+		&:hover:after {
+			width: 100%;
+		}
+		html.mobile &, html.tablet & {
+			margin-right: -10px;
+			width: 35px;
+			height: 25px;
+			overflow: hidden;
+			background-image: url('../img/call.svg');
+			background-size: auto 100%;
+			background-repeat: no-repeat;
+			span {
+				display: none;
+			}
+		}
+		html.mobile & {
+			margin-right: 15px;
+			@include respond-custom(320px, $md) {
+				height: 20px;
+				position: absolute;
+				right: 10px;
+				top: 29px;
+			}
 		}
 	}
 
