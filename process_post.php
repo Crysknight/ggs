@@ -13,17 +13,18 @@ $content = trim(file_get_contents("php://input"));
  
 $decoded = json_decode($content);
 
-$headers = "From: order@zi.plan-b.work";
+$headers = "From: order@zalog-invest.com\n";
 $headers .= "MIME-Version: 1.0\n";
 $headers .= "Content-type: text/html; charset=utf-8\n";
 
 $subject = "Отправка формы с сайта Залог Инвест";
 
-$to = "pavel@pln-b.ru";
+$to = "zaloginvest9822@gmail.com, pavel@pln-b.ru, order@pln-b.ru";
 
 $message = "";
 
 switch($decoded->form) {
+
 	case 'fast_form': 
 
 		$form_name = 'Быстрая форма оценки';
@@ -33,6 +34,7 @@ switch($decoded->form) {
 		$message .= "<b>Адрес: </b>" . $decoded->address . "<br />";
 		$message .= "<b>Телефон: </b>" . $decoded->phone . "<br />";
 		break;
+
 	case 'online_calculator': 
 
 		$form_name = 'Онлайн-калькулятор';
@@ -46,6 +48,7 @@ switch($decoded->form) {
 			$message .= "<b>Регион: </b>" . $decoded->region . "<br />";
 		}
 		break;
+
 	case 'application_form':
 
 		$form_name = 'Нижняя форма заявки';
@@ -57,6 +60,16 @@ switch($decoded->form) {
 			$message .= "<b>Сообщение: </b>" . $decoded->message . "<br />";
 		}
 		break;
+
+	case 'loan_form':
+
+		$form_name = 'Форма из расчета платежа';
+
+		$message .= "<b>Форма: </b>" . $form_name . "<br /><hr />";
+		$message .= "<b>Имя: </b>" . $decoded->name . "<br />";
+		$message .= "<b>Телефон: </b>" . $decoded->phone . "<br />";
+		break;
+
 }
 
 if( mail($to, $subject, $message, $headers) ){

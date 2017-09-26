@@ -1,4 +1,5 @@
-import 'jquery';
+import $ from 'jquery';
+require("expose-loader?$!jquery");
 import './utils/jquery.maskedinput.min.js';
 import 'bootstrap';
 import { device } from 'device.js';
@@ -13,5 +14,7 @@ import './components/online-calculator';
 import './components/monthly-payment';
 import './components/application-form';
 import './components/ggs-map';
+import './components/thank-you-message';
+import './components/loan-form';
 
 device.addClasses(document.documentElement);

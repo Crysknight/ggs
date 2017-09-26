@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Залог Инвест</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>Деньги под залог недвижимости - Залог Инвест</title>
 <link href="/css/styles.css" rel="stylesheet"></head>
 <body>
 
+
+    <div class="ggs-thank-you-message">
+        <div class="inner">
+            <button class="cross close-message"></button>
+            <div class="section-title">Спасибо!</div>
+            <p>Заявка успешно отправлена.<br>Мы свяжемся с Вами в ближайшее время.</p>
+            <button class="ggs-button close-message">Закрыть</button>
+        </div>
+    </div>
+
+
+    <div class="ggs-get-loan">
+        <div class="inner">
+            <button class="cross close-message"></button>
+            <div class="section-title">Отправить заявку</div>
+            <div class="ggs-form loan-form">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <label>Ваше имя:</label>
+                        <input autocomplete="on" class="name" name="name" type="text" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label>Номер телефона:</label>
+                        <input class="input-phone" />
+                    </div>
+                </div>
+            </div>
+            <div class="ggs-terms-of-use">Нажимая кнопку "Отправить", я даю свое согласие на обработку моих персональных данных,
+в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных»</div>
+            <button class="ggs-button send-loan-form">Отправить</button>
+        </div>
+    </div>
 
 
     <nav class="navbar navbar-expand-md ggs-navbar">
@@ -51,8 +100,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-10 mx-auto">
-                    <h1 class="section-title">Кредит под залог недвижимости <br class="d-lg-inline d-none">в день обращения</h1>
-                    <h3 class="semititle">Без переоформления, c прописанными, без справок, за 1 день<span class="d-lg-none d-inline">.</span> <br class="d-lg-inline d-none">С любой кредитной историей под 10,75% годовых</h3>
+                    <h1 class="section-title">Деньги под залог недвижимости <br class="d-lg-inline d-none">в день обращения</h1>
+                    <h3 class="semititle">Без переоформления, c прописанными, без справок, за 1 день<span class="d-lg-none d-inline">.</span> <br class="d-lg-inline d-none">С любой кредитной историей от 10,75% годовых</h3>
                 </div>
             </div>
         </div>
@@ -64,10 +113,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-12">
-                    <input class="apartment-space" type="number" placeholder="Площадь квартиры?" />
+                    <input autocomplete="on" class="apartment-space" type="number" min="10" name="apartment-space" placeholder="Площадь квартиры?" />
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
-                    <input class="address" type="text" placeholder="Адрес?" />
+                    <input autocomplete="on" class="address" type="text" name="address" placeholder="Адрес?" />
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <input class="input-phone" type="text" placeholder="Ваш номер телефона?" />
@@ -78,14 +127,11 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-10 mx-auto">
-                    <p class="ggs-terms-of-use">Нажимая кнопку "Получить деньги", я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных»</p>
+                    <p class="ggs-terms-of-use">Нажимая кнопку "Оценить сейчас", я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных»</p>
                 </div>
             </div>
         </div>
         <div class="form-shade"></div>
-        <div class="thank-you-message">
-            Спасибо за обращение!
-        </div>
     </div>
 
 
@@ -161,11 +207,11 @@
                         <div class="form-fields row">
                             <div class="col-12 col-sm-6">
                                 <label>Площадь (Метров<sup>2</sup>):</label>
-                                <input class="apartment-space" type="number">
+                                <input autocomplete="on" class="apartment-space" name="apartment-space" type="number" min="0">
                             </div>
                             <div class="col-12 col-sm-6">
                                 <label>Регион нахождения:</label>
-                                <input class="region" type="text">
+                                <input autocomplete="on" class="region" name="region" type="text">
                             </div>
                             <div class="col-12 col-sm-6">
                                 <label>Номер телефона:</label>
@@ -173,20 +219,17 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <label>Адрес:</label>
-                                <input class="address" type="text">
+                                <input autocomplete="on" class="address" name="address" type="text">
                             </div>
                         </div>
                     </div>
-                    <div class="ggs-terms-of-use">Нажимая кнопку "Получить деньги", я даю свое согласие на обработку моих персональных данных,
+                    <div class="ggs-terms-of-use">Нажимая кнопку "Оценить сейчас", я даю свое согласие на обработку моих персональных данных,
                     в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных»</div>
                     <button class="submit-assessing-form ggs-button">Оценить сейчас</button>
                 </div>
             </div>
         </div>
         <div class="form-shade"></div>
-        <div class="thank-you-message">
-            Спасибо за обращение!
-        </div>
     </div>
 
 
@@ -339,11 +382,11 @@
                         <div class="row form-fields">
                             <div class="col-12 col-sm-6">
                                 <label>Ваше имя:</label>
-                                <input class="name" type="text">
+                                <input autocomplete="on" class="name" name="name" type="text">
                             </div>
                             <div class="col-12 col-sm-6">
                                 <label>Ваш E-Mail:</label>
-                                <input class="email" type="text">
+                                <input autocomplete="on" class="email" name="email" type="text">
                             </div>
                             <div class="col-12">
                                 <label>Ваше сообщение:</label>
@@ -351,15 +394,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ggs-terms-of-use">Нажимая кнопку "Получить деньги", я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных»</div>
+                    <div class="ggs-terms-of-use">Нажимая кнопку "Отправить заявку", я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных»</div>
                     <button class="submit-application-form ggs-button">Отправить заявку</button>
                 </div>
             </div>
         </div>
         <div class="form-shade"></div>
-        <div class="thank-you-message">
-            Спасибо за обращение!
-        </div>
     </div>
 
 
@@ -377,11 +417,11 @@
                     </p>
                     <p>
                         <span>Телефон:</span>
-                        <span>+7 (495) 1429822</span>
+                        <a href="tel:84951429822">+7 (495) 142-98-22</a>
                     </p>
                     <p>
                         <span>Почта:</span>
-                        <span>zaloginvest9822@gmail.com</span>
+                        <span>info@zalog-invest.com</span>
                     </p>
                     <p>
                         <span>Режим работы:</span>
@@ -399,13 +439,41 @@
             <div class="row">
                 <div class="col-12 copyrights">
                     <div class="copyright-own">&copy; 2017 ООО «Залог Инвест»</div>
-                    <div class="copyright-dev">Разработано в Plan B</div>
+                    <a href="https://plan-b.agency/" target="_blank" class="copyright-dev">Разработано в Plan B</a>
                 </div>
             </div>
         </div>
     </div>
 
 
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46056114 = new Ya.Metrika({
+                    id:46056114,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
 
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/46056114" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <script type="text/javascript" src="/js/scripts.js"></script></body>
 </html>

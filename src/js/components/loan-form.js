@@ -1,33 +1,23 @@
 $(document).ready(function() {
 
-	let form = $('.ggs-fast-form-section');
+	let form = $('.ggs-get-loan');
 
-	form.find('.submit-fast-form').click(function() {
+	form.find('.send-loan-form').click(function() {
 
 		let _this = $(this);
 
 		let data = {
-			form: 'fast_form'
+			form: 'loan_form'
 		};
 
-		let apartmentSpace = form.find('input.apartment-space');
-		if (apartmentSpace.val() === '') {
-			apartmentSpace.addClass('error');
+		let name = form.find('input.name');
+		if (name.val() === '') {
+			name.addClass('error');
 			setTimeout(function() {
-				apartmentSpace.removeClass('error');
+				name.removeClass('error');
 			}, 1500);
 		} else {
-			data.apartmentSpace = apartmentSpace.val();
-		}
-
-		let address = form.find('input.address');
-		if (address.val() === '') {
-			address.addClass('error');
-			setTimeout(function() {
-				address.removeClass('error');
-			}, 1500);
-		} else {
-			data.address = address.val();
+			data.name = name.val();
 		}
 
 		let phone = form.find('input.input-phone');
@@ -40,7 +30,7 @@ $(document).ready(function() {
 			data.phone = phone.val();
 		}
 
-		if (apartmentSpace.val() === '' || address.val() === '' || phone.val() === '') {
+		if (name.val() === '' || phone.val() === '') {
 			_this.addClass('error').text('Все поля обязательны');
 			setTimeout(function() {
 				_this.removeClass('error').text('Оценить сейчас');
@@ -49,18 +39,17 @@ $(document).ready(function() {
 			form.find('.form-shade').css({ 'z-index': '450' }).animate({
 				'opacity': 0.5
 			});
-			yaCounter46056114.reachGoal('fast_form', function() {
-				console.log('fast_form');
-			});
 			data = JSON.stringify(data);
+			yaCounter46056114.reachGoal('loan_form', function() {
+				console.log('loan_form');
+			});
 			$.post({
 				url: '/process_post.php',
 				contentType: 'application/json',
 				data,
 				success: function() {
-					$('.ggs-thank-you-message').css({ 'z-index': '500' }).animate({
-						'opacity': 1
-					}, 300);
+					$('.ggs-get-loan').css({ 'z-index': -5, 'opacity': 0 });
+					$('.ggs-thank-you-message').css({ 'z-index': '500', 'opacity': 1 });
 				},
 				error: function() {
 					form.find('.form-shade').text('Что-то пошло не так. Перезагрузите страницу').animate({ 'opacity': 0.95 });

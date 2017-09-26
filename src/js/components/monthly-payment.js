@@ -45,7 +45,19 @@ class Scale {
 				self.setPosition('max');
 			}
 		});
-		this.scale.on('mousedown', function() {
+		window.addEventListener('touchmove', function(event) {
+			let movingInBounds = false;
+			let positionOnScale = event.touches[0].pageX - self.scaleOffset;
+			if (positionOnScale > 0 && positionOnScale <= self.scaleWidth) movingInBounds = true;
+			if (self.runnerActive && movingInBounds) {
+				self.setPosition(positionOnScale);
+			} else if (self.runnerActive && positionOnScale <= 0) {
+				self.setPosition('min');
+			} else if (self.runnerActive && positionOnScale > self.scaleWidth) {
+				self.setPosition('max');
+			}
+		});
+		this.scale.on('mousedown', function(event) {
 			self.runnerActive = true;
 			let positionOnScale = event.pageX - self.scaleOffset;
 			if (positionOnScale <= 0) {
@@ -54,7 +66,19 @@ class Scale {
 				self.setPosition(positionOnScale);
 			}
 		});
+		this.scale.on('touchstart', function(event) {
+			self.runnerActive = true;
+			let positionOnScale = event.touches[0].pageX - self.scaleOffset;
+			if (positionOnScale <= 0) {
+				self.setPosition('min');
+			} else {
+				self.setPosition(positionOnScale);
+			}
+		});
 		window.addEventListener('mouseup', function() {
+			self.runnerActive = false;
+		});
+		window.addEventListener('touchend', function() {
 			self.runnerActive = false;
 		});
 
@@ -156,7 +180,7 @@ $(document).ready(function() {
 	);
 
 	let calculateMonthlyPayment = () => {
-		let annualRate = 0.2;
+		let annualRate = 0.1075;
 		let monthlyRate = +(annualRate / 12).toFixed(3);
 		let loanToMoney = sumScaleObject.currentValue * 500000
 		let indebtednessSum = loanToMoney + termScaleObject.currentValue * loanToMoney * monthlyRate;
@@ -168,44 +192,12 @@ $(document).ready(function() {
 
 	setTimeout(calculateMonthlyPayment, 2000);
 
+
+
+	$('.get-loan').click(function() {
+		$('.ggs-get-loan').css({ 'z-index': 500 }).animate({
+			'opacity': 1
+		}, 150);
+	});
+
 });
-
-// const loan = {
-
-// 	annualRate: 0.2,
-
-// 	sumScale: $('.payment-scale.loan-sum'),
-
-// 	get sumScaleWidth() {
-// 		return sumScale.find('.scale').width();
-// 	},
-
-// 	termScale: $('.payment-scale.loan-term'),
-
-// 	get termScaleWidth() {
-// 		return sumScale.find('.scale').width();
-// 	},
-
-// 	sumData: {
-// 		min: 1,
-// 		max: 100,
-// 		current: 7
-// 	},
-
-// 	get sum() {
-// 		return sumData.current;
-// 	},
-
-// 	set sum() {
-
-// 	},
-
-// 	sumStep: 500,
-
-// 	termData: {
-// 		min: 1,
-// 		max: 240,
-// 		current: 3
-// 	}
-
-// };

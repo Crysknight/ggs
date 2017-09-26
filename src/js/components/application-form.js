@@ -17,7 +17,7 @@ $(document).ready(function() {
 				name.removeClass('error');
 			}, 1500);
 		} else {
-			data.name = name;
+			data.name = name.val();
 		}
 
 		let email = form.find('input.email');
@@ -27,12 +27,12 @@ $(document).ready(function() {
 				email.removeClass('error');
 			}, 1500);
 		} else {
-			data.email = email;
+			data.email = email.val();
 		}
 
 		let message = form.find('textarea.message');
 		if (email.val() !== '') {
-			data.message = message;
+			data.message = message.val();
 		}
 
 		if (name.val() === '' || email.val() === '') {
@@ -44,17 +44,21 @@ $(document).ready(function() {
 			form.find('.form-shade').css({ 'z-index': '450' }).animate({
 				'opacity': 0.3
 			});
+			data = JSON.stringify(data);
+			yaCounter46056114.reachGoal('application_form', function() {
+				console.log('application_form');
+			});
 			$.post({
 				url: '/process_post.php',
 				contentType: 'application/json',
 				data,
 				success: function() {
-					form.find('.thank-you-message').css({ 'z-index': '500' }).animate({
+					$('.ggs-thank-you-message').css({ 'z-index': '500' }).animate({
 						'opacity': 1
 					}, 300);
 				},
 				error: function() {
-					form.find('.thank-you-message').html('Что-то пошло не так<br />Попробуйте еще раз').css({ 'z-index': '500' }).animate({
+					$('.ggs-thank-you-message').css({ 'z-index': '500' }).animate({
 						'opacity': 1
 					}, 300);
 				}

@@ -2,6 +2,11 @@
 
 	padding: 0;
 	height: 80px;
+	position: fixed;
+	width: 100%;
+	z-index: 505;
+	top: 0;
+	background-color: $ggsCWhite;
 
 	.container {
 		@include respond-custom(320px, $lg) {
@@ -60,7 +65,7 @@
 				background-color: $ggsCGreen;
 				transition: width 0.3s;
 			}
-			&:hover:after {
+			&:hover:after, &.active:after {
 				width: 100%;
 			}
 			html.desktop & {
@@ -94,6 +99,12 @@
 			letter-spacing: 2px;
 			font-size: 13px;
 			font-weight: bold;
+			@include respond-to(xl) {
+				font-size: 15px;
+			}
+			@include respond-to(lg) {
+				font-size: 15px;
+			}
 		}
 		&:after {
 			content: '';

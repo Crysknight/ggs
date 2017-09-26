@@ -24,7 +24,7 @@ $(document).ready(function() {
 				apartmentSpace.removeClass('error');
 			}, 1500);
 		} else {
-			data.apartmentSpace = apartmentSpace;
+			data.apartmentSpace = apartmentSpace.val();
 		}
 
 		let address = form.find('input.address');
@@ -34,7 +34,7 @@ $(document).ready(function() {
 				address.removeClass('error');
 			}, 1500);
 		} else {
-			data.address = address;
+			data.address = address.val();
 		}
 
 		let phone = form.find('input.input-phone');
@@ -44,12 +44,12 @@ $(document).ready(function() {
 				phone.removeClass('error');
 			}, 1500);
 		} else {
-			data.phone = phone;
+			data.phone = phone.val();
 		}
 
 		let region = form.find('input.region');
 		if (region.val() !== '') {
-			data.region = region;
+			data.region = region.val();
 		}
 
 		if (apartmentSpace.val() === '' || address.val() === '' || phone.val() === '') {
@@ -61,17 +61,21 @@ $(document).ready(function() {
 			form.find('.form-shade').css({ 'z-index': '450' }).animate({
 				'opacity': 0.3
 			});
+			data = JSON.stringify(data);
+			yaCounter46056114.reachGoal('online_calculator', function() {
+				console.log('online_calculator');
+			});
 			$.post({
 				url: '/process_post.php',
 				contentType: 'application/json',
 				data,
 				success: function() {
-					form.find('.thank-you-message').css({ 'z-index': '500' }).animate({
+					$('.ggs-thank-you-message').css({ 'z-index': '500' }).animate({
 						'opacity': 1
 					}, 300);
 				},
 				error: function() {
-					form.find('.thank-you-message').html('Что-то пошло не так<br />Попробуйте еще раз').css({ 'z-index': '500' }).animate({
+					$('.ggs-thank-you-message').css({ 'z-index': '500' }).animate({
 						'opacity': 1
 					}, 300);
 				}
